@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NHÓM 12 — BÁNH PÍA SÓC TRĂNG | ĐỒ ÁN AI ỨNG DỤNG (DHV)</title>
 <meta name="description" content="Trang web đồ án học phần AI ứng dụng (06050), Đề tài Bánh Pía Sóc Trăng - Nhóm 12, Trường Đại học Hùng Vương TP.HCM.">
-<link rel="icon" type="image/png" href="imgs/DHV_Logo.png">
+<link rel="icon" type="image/png" href="DHV_Logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -577,7 +577,7 @@ footer {
 <nav>
   <div class="wrap nav-container">
     <div class="logo-box">
-      <img src="imgs/DHV_Logo.png" alt="DHV Logo">
+      <img src="DHV_Logo.png" alt="DHV Logo">
       <a href="#" class="logo-text">
         NHÓM 12
         <span class="logo-sub">BÁNH PÍA SÓC TRĂNG</span>
@@ -689,12 +689,12 @@ footer {
 
       <div class="img-stack" style="display: flex; flex-direction: column; gap: 22px;">
         <div class="img-box" style="border-radius: 10px; overflow: hidden; background: #FFF; border: 1px solid var(--khung-vien); box-shadow: 0 8px 20px rgba(0,0,0,0.05); transition: transform 0.3s ease;">
-          <img src="imgs/hero.jpg" alt="Hộp bánh pía Sóc Trăng" style="width: 100%; height: 220px; object-fit: cover; display: block;">
+          <img src="hero.jpg" alt="Hộp bánh pía Sóc Trăng" style="width: 100%; height: 220px; object-fit: cover; display: block;">
           <div class="img-cap" style="text-align: center; font-size: 12.5px; color: var(--chu-mo); padding: 10px 0; font-style: italic; background: #FFF; border-top: 1px solid #F5F0EB;">Bánh pía Sóc Trăng</div>
         </div>
         
         <div class="img-box" style="border-radius: 10px; overflow: hidden; background: #FFF; border: 1px solid var(--khung-vien); box-shadow: 0 8px 20px rgba(0,0,0,0.05); transition: transform 0.3s ease;">
-          <img src="imgs/frame.jpg" alt="Bánh pía cắt ra" style="width: 100%; height: 220px; object-fit: cover; display: block;">
+          <img src="frame.jpg" alt="Bánh pía cắt ra" style="width: 100%; height: 220px; object-fit: cover; display: block;">
           <div class="img-cap" style="text-align: center; font-size: 12.5px; color: var(--chu-mo); padding: 10px 0; font-style: italic; background: #FFF; border-top: 1px solid #F5F0EB;">Bánh pía cắt ra</div>
         </div>
       </div>
@@ -711,7 +711,7 @@ footer {
 
     <div class="grid-3">
       <div class="product-card">
-        <img src="imgs/banhpia_saurieng.jpg" alt="Bánh Pía Sầu Riêng Trứng Muối">
+        <img src="banhpia_saurieng.jpg" alt="Bánh Pía Sầu Riêng Trứng Muối">
         <div class="product-info">
           <div class="rating">★★★★★</div>
           <h3>BÁNH PÍA SẦU RIÊNG TRỨNG MUỐI</h3>
@@ -723,7 +723,7 @@ footer {
         </div>
       </div>
       <div class="product-card">
-        <img src="imgs/banhpia_dauxanh.jpg" alt="Bánh Pía Đậu Xanh Trứng">
+        <img src="banhpia_dauxanh.jpg" alt="Bánh Pía Đậu Xanh Trứng">
         <div class="product-info">
           <div class="rating">★★★★☆</div>
           <h3>BÁNH PÍA ĐẬU XANH TRỨNG</h3>
@@ -735,7 +735,7 @@ footer {
         </div>
       </div>
       <div class="product-card">
-        <img src="imgs/banhpia_khoaimon.jpg" alt="Bánh Pía Khoai Môn Trứng">
+        <img src="banhpia_khoaimon.jpg" alt="Bánh Pía Khoai Môn Trứng">
         <div class="product-info">
           <div class="rating">★★★★★</div>
           <h3>BÁNH PÍA KHOAI MÔN TRỨNG</h3>
@@ -747,7 +747,7 @@ footer {
         </div>
       </div>
       <div class="product-card">
-        <img src="imgs/banhpia_kimsa.jpg" alt="Bánh Pía Kim Sa Trứng Chảy">
+        <img src="banhpia_kimsa.jpg" alt="Bánh Pía Kim Sa Trứng Chảy">
         <div class="product-info">
           <div class="rating">★★★★★</div>
           <h3>BÁNH PÍA KIM SA TRỨNG CHẢY</h3>
@@ -759,7 +759,7 @@ footer {
         </div>
       </div>
       <div class="product-card">
-        <img src="imgs/banhpia_chay_dauxanh.jpg" alt="Bánh Pía Chay">
+        <img src="banhpia_chay_dauxanh.jpg" alt="Bánh Pía Chay">
         <div class="product-info">
           <div class="rating">★★★★☆</div>
           <h3>BÁNH PÍA CHAY</h3>
@@ -771,7 +771,7 @@ footer {
         </div>
       </div>
       <div class="product-card">
-        <img src="imgs/banhpia_khoaitay.jpg" alt="Bánh Pía Khoai Tây">
+        <img src="banhpia_khoaitay.jpg" alt="Bánh Pía Khoai Tây">
         <div class="product-info">
           <div class="rating">★★★★★</div>
           <h3>BÁNH PÍA KHOAI TÂY – MỚI</h3>
@@ -795,12 +795,12 @@ footer {
 
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; margin-bottom: 40px;">
       <div style="border-radius: 10px; overflow: hidden; background: #FFF; border: 1px solid var(--khung-vien); box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
-        <img src="imgs/frame.jpg" alt="Cận cảnh bánh pía cắt ra" style="width: 100%; height: 280px; object-fit: cover; display: block;">
+        <img src="frame.jpg" alt="Cận cảnh bánh pía cắt ra" style="width: 100%; height: 280px; object-fit: cover; display: block;">
         <div style="text-align: center; font-size: 12.5px; color: var(--chu-mo); padding: 10px 0; font-style: italic; background: #FFF; border-top: 1px solid #F5F0EB;">Bánh pía trứng muối</div>
       </div>
 
       <div style="border-radius: 10px; overflow: hidden; background: #FFF; border: 1px solid var(--khung-vien); box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
-        <img src="imgs/banhbiabachvi.jpg" alt="Nhân bánh pía sầu riêng" style="width: 100%; height: 280px; object-fit: cover; display: block;">
+        <img src="banhbiabachvi.jpg" alt="Nhân bánh pía sầu riêng" style="width: 100%; height: 280px; object-fit: cover; display: block;">
         <div style="text-align: center; font-size: 12.5px; color: var(--chu-mo); padding: 10px 0; font-style: italic; background: #FFF; border-top: 1px solid #F5F0EB;">Từng lớp nhân sầu riêng thơm lừng</div>
       </div>
     </div>
@@ -933,14 +933,14 @@ footer {
     <div class="grid-2" style="margin-bottom: 30px;">
       <div>
         <div class="img-box" style="margin-bottom: 12px;">
-          <img src="imgs/TrieuChau.jpg" alt="Thế kỷ 17 Triều Châu" style="width: 100%; height: 240px; object-fit: cover;">
+          <img src="TrieuChau.jpg" alt="Thế kỷ 17 Triều Châu" style="width: 100%; height: 240px; object-fit: cover;">
           <div class="img-cap">Thế kỷ 17: Người Hoa Triều Châu di cư đến Sóc Trăng, mang theo nghề làm bánh nướng nhiều lớp.</div>
         </div>
       </div>
       
       <div>
         <div class="img-box" style="margin-bottom: 12px;">
-          <img src="imgs/iris.jpg" alt="1900 Vũng Thơm" style="width: 100%; height: 240px; object-fit: cover;">
+          <img src="iris.jpg" alt="1900 Vũng Thơm" style="width: 100%; height: 240px; object-fit: cover;">
           <div class="img-cap">1900: Lò bánh đầu tiên ở Vũng Thơm. Người thợ bắt đầu cho sầu riêng miền Tây vào nhân.</div>
         </div>
       </div>
