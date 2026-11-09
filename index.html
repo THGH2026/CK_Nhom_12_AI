@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NHÓM 12 — BÁNH PÍA SÓC TRĂNG | ĐỒ ÁN AI ỨNG DỤNG (DHV)</title>
 <meta name="description" content="Trang web đồ án học phần AI ứng dụng (06050), Đề tài Bánh Pía Sóc Trăng - Nhóm 12, Trường Đại học Hùng Vương TP.HCM.">
-<link rel="icon" type="image/png" href="DHV_Logo.png">
+<link rel="icon" type="image/png" href="imgs/DHV_Logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -117,7 +117,7 @@ nav {
 .hero {
   position: relative;
   min-height: 85vh;
-  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)), url('hero.jpg') center/cover no-repeat;
+  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)), url('imgs/hero.jpg') center/cover no-repeat;
   color: #FFF;
   display: flex;
   align-items: center;
@@ -287,8 +287,33 @@ nav {
 
 .sec-desc {
   color: var(--chu-mo);
-  margin-bottom: 40px;
+  margin-bottom: 25px;
   font-size: 16px;
+}
+
+/* FILTER BUTTONS (SẢN PHẨM) */
+.filter-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  background: #FFF;
+  border: 1px solid var(--khung-vien);
+  padding: 8px 22px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--chu-toi);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+}
+.filter-btn.active, .filter-btn:hover {
+  background: var(--do-dam);
+  color: #FFF;
+  border-color: var(--do-dam);
 }
 
 /* 01 - GIỚI THIỆU */
@@ -344,7 +369,8 @@ nav {
 .product-info p { font-size: 13px; color: var(--chu-mo); margin: 0 0 15px; flex: 1; }
 .product-action { display: flex; justify-content: space-between; align-items: center; }
 .price { font-weight: 800; color: var(--do-dam); font-size: 17px; }
-.btn-add { background: var(--do-dam); color: #FFF; border: 0; padding: 8px 14px; border-radius: 4px; font-size: 12px; font-weight: 700; cursor: pointer; }
+.btn-add { background: var(--do-dam); color: #FFF; border: 0; padding: 8px 14px; border-radius: 4px; font-size: 12px; font-weight: 700; cursor: pointer; transition: background 0.2s; }
+.btn-add:hover { background: var(--do-tuoi); }
 
 /* 03 - CẬN CẢNH */
 .sec-cancanh { padding: 90px 0; background: var(--vang-kem); }
@@ -577,7 +603,7 @@ footer {
 <nav>
   <div class="wrap nav-container">
     <div class="logo-box">
-      <img src="DHV_Logo.png" alt="DHV Logo">
+      <img src="imgs/DHV_Logo.png" alt="DHV Logo">
       <a href="#" class="logo-text">
         NHÓM 12
         <span class="logo-sub">BÁNH PÍA SÓC TRĂNG</span>
@@ -592,7 +618,12 @@ footer {
       <a href="#banggia">BẢNG GIÁ</a>
       <a href="#danhgia">LIÊN HỆ</a>
     </div>
-    <a href="#banggia" class="btn-order-top">ĐẶT HÀNG →</a>
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <button onclick="toggleCartModal()" style="background: #FFF; color: var(--do-dam); border: 2px solid var(--do-dam); padding: 8px 16px; border-radius: 4px; font-weight: 700; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+        🛒 Giỏ hàng (<span id="cartCount">0</span>)
+      </button>
+      <a href="#banggia" class="btn-order-top">ĐẶT HÀNG →</a>
+    </div>
   </div>
 </nav>
 
@@ -689,12 +720,12 @@ footer {
 
       <div class="img-stack" style="display: flex; flex-direction: column; gap: 22px;">
         <div class="img-box" style="border-radius: 10px; overflow: hidden; background: #FFF; border: 1px solid var(--khung-vien); box-shadow: 0 8px 20px rgba(0,0,0,0.05); transition: transform 0.3s ease;">
-          <img src="hero.jpg" alt="Hộp bánh pía Sóc Trăng" style="width: 100%; height: 220px; object-fit: cover; display: block;">
+          <img src="imgs/hero.jpg" alt="Hộp bánh pía Sóc Trăng" style="width: 100%; height: 220px; object-fit: cover; display: block;">
           <div class="img-cap" style="text-align: center; font-size: 12.5px; color: var(--chu-mo); padding: 10px 0; font-style: italic; background: #FFF; border-top: 1px solid #F5F0EB;">Bánh pía Sóc Trăng</div>
         </div>
         
         <div class="img-box" style="border-radius: 10px; overflow: hidden; background: #FFF; border: 1px solid var(--khung-vien); box-shadow: 0 8px 20px rgba(0,0,0,0.05); transition: transform 0.3s ease;">
-          <img src="frame.jpg" alt="Bánh pía cắt ra" style="width: 100%; height: 220px; object-fit: cover; display: block;">
+          <img src="imgs/frame.jpg" alt="Bánh pía cắt ra" style="width: 100%; height: 220px; object-fit: cover; display: block;">
           <div class="img-cap" style="text-align: center; font-size: 12.5px; color: var(--chu-mo); padding: 10px 0; font-style: italic; background: #FFF; border-top: 1px solid #F5F0EB;">Bánh pía cắt ra</div>
         </div>
       </div>
@@ -707,78 +738,86 @@ footer {
   <div class="wrap">
     <span class="sec-tag">02 — SẢN PHẨM</span>
     <h2 class="sec-title">Chọn chiếc bánh của bạn.</h2>
-    <p class="sec-desc">6 vị được khách đặt nhiều nhất. Sản phẩm chất lượng thủ công cao cấp.</p>
+    <p class="sec-desc">6 vị được khách đặt nhiều nhất. Sản phẩm chất lượng thủ công cao cấp. Bấm lọc để xem theo nhóm.</p>
 
-    <div class="grid-3">
-      <div class="product-card">
-        <img src="banhpia_saurieng.jpg" alt="Bánh Pía Sầu Riêng Trứng Muối">
+    <!-- Nút lọc sản phẩm -->
+    <div class="filter-buttons">
+      <button class="filter-btn active" onclick="filterProducts('all', this)">Tất cả</button>
+      <button class="filter-btn" onclick="filterProducts('banchay', this)">Bán chạy</button>
+      <button class="filter-btn" onclick="filterProducts('banhchay', this)">Bánh chay</button>
+      <button class="filter-btn" onclick="filterProducts('vimoi', this)">Vị mới</button>
+    </div>
+
+    <div class="grid-3" id="productGrid">
+      <div class="product-card" data-category="banchay">
+        <img src="imgs/banhpia_saurieng.jpg" alt="Bánh Pía Sầu Riêng Trứng Muối">
         <div class="product-info">
           <div class="rating">★★★★★</div>
           <h3>BÁNH PÍA SẦU RIÊNG TRỨNG MUỐI</h3>
           <p>Bán chạy nhất. Sầu riêng Ri6 + trứng muối béo ngậy.</p>
           <div class="product-action">
             <span class="price">85.000đ</span>
-            <button class="btn-add">THÊM VÀO GIỎ →</button>
+            <button class="btn-add" onclick="addToCart('Bánh Pía Sầu Riêng Trứng Muối', 85000)">THÊM VÀO GIỎ →</button>
           </div>
         </div>
       </div>
-      <div class="product-card">
-        <img src="banhpia_dauxanh.jpg" alt="Bánh Pía Đậu Xanh Trứng">
+      <div class="product-card" data-category="tatca">
+        <img src="imgs/banhpia_dauxanh.jpg" alt="Bánh Pía Đậu Xanh Trứng">
         <div class="product-info">
           <div class="rating">★★★★☆</div>
           <h3>BÁNH PÍA ĐẬU XANH TRỨNG</h3>
           <p>Truyền thống. Ngọt vừa, thơm đậu xanh.</p>
           <div class="product-action">
             <span class="price">65.000đ</span>
-            <button class="btn-add">THÊM VÀO GIỎ →</button>
+            <button class="btn-add" onclick="addToCart('Bánh Pía Đậu Xanh Trứng', 65000)">THÊM VÀO GIỎ →</button>
           </div>
         </div>
       </div>
-      <div class="product-card">
-        <img src="banhpia_khoaimon.jpg" alt="Bánh Pía Khoai Môn Trứng">
+      <div class="product-card" data-category="tatca">
+        <img src="imgs/banhpia_khoaimon.jpg" alt="Bánh Pía Khoai Môn Trứng">
         <div class="product-info">
           <div class="rating">★★★★★</div>
           <h3>BÁNH PÍA KHOAI MÔN TRỨNG</h3>
           <p>Khoai môn tím dẻo, bùi, màu đẹp.</p>
           <div class="product-action">
             <span class="price">70.000đ</span>
-            <button class="btn-add">THÊM VÀO GIỎ →</button>
+            <button class="btn-add" onclick="addToCart('Bánh Pía Khoai Môn Trứng', 70000)">THÊM VÀO GIỎ →</button>
           </div>
         </div>
       </div>
-      <div class="product-card">
-        <img src="banhpia_kimsa.jpg" alt="Bánh Pía Kim Sa Trứng Chảy">
+      <div class="product-card" data-category="banchay">
+        <img src="imgs/banhpia_kimsa.jpg" alt="Bánh Pía Kim Sa Trứng Chảy">
         <div class="product-info">
           <div class="rating">★★★★★</div>
           <h3>BÁNH PÍA KIM SA TRỨNG CHẢY</h3>
           <p>Nhân trứng chảy béo ngậy, cắn là chảy.</p>
           <div class="product-action">
             <span class="price">95.000đ</span>
-            <button class="btn-add">THÊM VÀO GIỎ →</button>
+            <button class="btn-add" onclick="addToCart('Bánh Pía Kim Sa Trứng Chảy', 95000)">THÊM VÀO GIỎ →</button>
           </div>
         </div>
       </div>
-      <div class="product-card">
-        <img src="banhpia_chay_dauxanh.jpg" alt="Bánh Pía Chay">
+      <div class="product-card" data-category="banhchay">
+        <img src="imgs/banhpia_chay_dauxanh.jpg" alt="Bánh Pía Chay">
         <div class="product-info">
           <div class="rating">★★★★☆</div>
           <h3>BÁNH PÍA CHAY</h3>
           <p>Không trứng, không sữa, thanh đạm.</p>
           <div class="product-action">
             <span class="price">55.000đ</span>
-            <button class="btn-add">THÊM VÀO GIỎ →</button>
+            <button class="btn-add" onclick="addToCart('Bánh Pía Chay', 55000)">THÊM VÀO GIỎ →</button>
           </div>
         </div>
       </div>
-      <div class="product-card">
-        <img src="banhpia_khoaitay.jpg" alt="Bánh Pía Khoai Tây">
+      <div class="product-card" data-category="vimoi">
+        <img src="imgs/banhpia_khoaitay.jpg" alt="Bánh Pía Khoai Tây">
         <div class="product-info">
           <div class="rating">★★★★★</div>
           <h3>BÁNH PÍA KHOAI TÂY – MỚI</h3>
           <p>Vị mới độc đáo của Nhóm 12.</p>
           <div class="product-action">
             <span class="price">88.000đ</span>
-            <button class="btn-add">THÊM VÀO GIỎ →</button>
+            <button class="btn-add" onclick="addToCart('Bánh Pía Khoai Tây', 88000)">THÊM VÀO GIỎ →</button>
           </div>
         </div>
       </div>
@@ -795,12 +834,12 @@ footer {
 
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; margin-bottom: 40px;">
       <div style="border-radius: 10px; overflow: hidden; background: #FFF; border: 1px solid var(--khung-vien); box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
-        <img src="frame.jpg" alt="Cận cảnh bánh pía cắt ra" style="width: 100%; height: 280px; object-fit: cover; display: block;">
+        <img src="imgs/frame.jpg" alt="Cận cảnh bánh pía cắt ra" style="width: 100%; height: 280px; object-fit: cover; display: block;">
         <div style="text-align: center; font-size: 12.5px; color: var(--chu-mo); padding: 10px 0; font-style: italic; background: #FFF; border-top: 1px solid #F5F0EB;">Bánh pía trứng muối</div>
       </div>
 
       <div style="border-radius: 10px; overflow: hidden; background: #FFF; border: 1px solid var(--khung-vien); box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
-        <img src="banhbiabachvi.jpg" alt="Nhân bánh pía sầu riêng" style="width: 100%; height: 280px; object-fit: cover; display: block;">
+        <img src="imgs/banhbiabachvi.jpg" alt="Nhân bánh pía sầu riêng" style="width: 100%; height: 280px; object-fit: cover; display: block;">
         <div style="text-align: center; font-size: 12.5px; color: var(--chu-mo); padding: 10px 0; font-style: italic; background: #FFF; border-top: 1px solid #F5F0EB;">Từng lớp nhân sầu riêng thơm lừng</div>
       </div>
     </div>
@@ -895,7 +934,7 @@ footer {
     <h2 class="sec-title">Xem cách làm bánh pía.</h2>
     <p class="sec-desc">3 video về bánh pía Sóc Trăng – từ giới thiệu chung đến hướng dẫn làm chi tiết.</p>
 
-    <!-- Video chính (Video 1: 0tIfoVxh-yE) -->
+    <!-- Video chính (Video 1) -->
     <div style="margin-bottom: 30px;">
       <div class="youtube-poster-box" onclick="loadVideo(this, '0tIfoVxh-yE')">
         <img src="https://img.youtube.com/vi/0tIfoVxh-yE/hqdefault.jpg" alt="Video 1" class="thumb-img">
@@ -903,7 +942,7 @@ footer {
       </div>
     </div>
 
-    <!-- Video phụ (Video 2: DGXHh-6xF-Y & Video 3: BCis8Wcoo8o) -->
+    <!-- Video phụ (Video 2 & Video 3) -->
     <div class="video-sub-grid">
       <div style="background:rgba(0,0,0,0.25);padding:15px;border-radius:8px">
         <div class="youtube-poster-box" onclick="loadVideo(this, 'DGXHh-6xF-Y')" style="margin-bottom:10px;">
@@ -933,14 +972,14 @@ footer {
     <div class="grid-2" style="margin-bottom: 30px;">
       <div>
         <div class="img-box" style="margin-bottom: 12px;">
-          <img src="TrieuChau.jpg" alt="Thế kỷ 17 Triều Châu" style="width: 100%; height: 240px; object-fit: cover;">
+          <img src="imgs/TrieuChau.jpg" alt="Thế kỷ 17 Triều Châu" style="width: 100%; height: 240px; object-fit: cover;">
           <div class="img-cap">Thế kỷ 17: Người Hoa Triều Châu di cư đến Sóc Trăng, mang theo nghề làm bánh nướng nhiều lớp.</div>
         </div>
       </div>
       
       <div>
         <div class="img-box" style="margin-bottom: 12px;">
-          <img src="iris.jpg" alt="1900 Vũng Thơm" style="width: 100%; height: 240px; object-fit: cover;">
+          <img src="imgs/iris.jpg" alt="1900 Vũng Thơm" style="width: 100%; height: 240px; object-fit: cover;">
           <div class="img-cap">1900: Lò bánh đầu tiên ở Vũng Thơm. Người thợ bắt đầu cho sầu riêng miền Tây vào nhân.</div>
         </div>
       </div>
@@ -1116,6 +1155,25 @@ footer {
   </div>
 </section>
 
+<!-- MODAL GIỎ HÀNG -->
+<div id="cartModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000; align-items:center; justify-content:center;">
+  <div style="background:#FFF; width:min(500px, 90vw); padding:30px; border-radius:10px; box-shadow:0 10px 30px rgba(0,0,0,0.2); position:relative;">
+    <h3 style="margin-top:0; color:var(--do-dam); border-bottom:2px solid var(--khung-vien); padding-bottom:10px;">🛒 Giỏ hàng của bạn</h3>
+    <div id="cartItemsList" style="max-height:300px; overflow-y:auto; margin:15px 0;">
+      <p style="color:var(--chu-mo); text-align:center;">Giỏ hàng đang trống.</p>
+    </div>
+    <div style="border-top:1px solid var(--khung-vien); padding-top:15px; display:flex; justify-content:space-between; align-items:center; font-weight:700; font-size:16px;">
+      <span>Tổng tiền:</span>
+      <span id="cartTotalPrice" style="color:var(--do-dam);">0đ</span>
+    </div>
+    <div style="margin-top:20px; display:flex; gap:10px;">
+      <button onclick="checkoutCart()" style="flex:1; background:var(--do-dam); color:#FFF; border:0; padding:12px; border-radius:4px; font-weight:700; cursor:pointer;">Tiến hành đặt hàng</button>
+      <button onclick="toggleCartModal()" style="background:#EAE2D5; color:var(--chu-toi); border:0; padding:12px 20px; border-radius:4px; font-weight:700; cursor:pointer;">Đóng</button>
+    </div>
+    <button onclick="toggleCartModal()" style="position:absolute; top:15px; right:20px; background:none; border:0; font-size:20px; cursor:pointer; color:var(--chu-mo);">×</button>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer id="nhom">
   <div class="wrap">
@@ -1159,7 +1217,7 @@ footer {
   </div>
 </footer>
 
-<!-- JAVASCRIPT CHO HIỆU ỨNG FAQ, ĐẶT HÀNG VÀ TẢI VIDEO YOUTUBE -->
+<!-- JAVASCRIPT -->
 <script>
   document.querySelectorAll('.faq-question').forEach(question => {
     question.addEventListener('click', () => {
@@ -1181,7 +1239,6 @@ footer {
     }
   }
 
-  // Hàm tự động tải và phát video YouTube khi người dùng bấm vào ảnh bìa
   function loadVideo(container, videoId) {
     container.classList.add('clicked');
     const iframe = document.createElement('iframe');
@@ -1190,6 +1247,98 @@ footer {
     iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
     iframe.setAttribute('allowfullscreen', 'true');
     container.appendChild(iframe);
+  }
+
+  // Quản lý Giỏ hàng
+  let cart = [];
+
+  function addToCart(name, price) {
+    const existingItem = cart.find(item => item.name === name);
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      cart.push({ name, price, quantity: 1 });
+    }
+    updateCartUI();
+    alert(`Đã thêm "${name}" vào giỏ hàng thành công!`);
+  }
+
+  function updateCartUI() {
+    const cartCount = document.getElementById('cartCount');
+    const cartItemsList = document.getElementById('cartItemsList');
+    const cartTotalPrice = document.getElementById('cartTotalPrice');
+
+    const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+    cartCount.textContent = totalCount;
+
+    if (cart.length === 0) {
+      cartItemsList.innerHTML = '<p style="color:var(--chu-mo); text-align:center;">Giỏ hàng đang trống.</p>';
+      cartTotalPrice.textContent = '0đ';
+      return;
+    }
+
+    let html = '';
+    let totalPrice = 0;
+
+    cart.forEach((item, index) => {
+      const itemTotal = item.price * item.quantity;
+      totalPrice += itemTotal;
+      html += `
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #f1f1f1;">
+          <div>
+            <h4 style="margin:0; font-size:14px; color:var(--chu-toi);">${item.name}</h4>
+            <span style="font-size:12px; color:var(--chu-mo);">${item.price.toLocaleString()}đ x ${item.quantity}</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span style="font-weight:700; color:var(--do-dam);">${itemTotal.toLocaleString()}đ</span>
+            <button onclick="removeFromCart(${index})" style="background:#ff4d4d; color:#fff; border:none; padding:2px 8px; border-radius:3px; cursor:pointer; font-size:11px;">Xóa</button>
+          </div>
+        </div>
+      `;
+    });
+
+    cartItemsList.innerHTML = html;
+    cartTotalPrice.textContent = totalPrice.toLocaleString() + 'đ';
+  }
+
+  function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartUI();
+  }
+
+  function toggleCartModal() {
+    const modal = document.getElementById('cartModal');
+    if (modal.style.display === 'flex') {
+      modal.style.display = 'none';
+    } else {
+      modal.style.display = 'flex';
+      updateCartUI();
+    }
+  }
+
+  function checkoutCart() {
+    if (cart.length === 0) {
+      alert('Giỏ hàng của bạn đang trống!');
+      return;
+    }
+    toggleCartModal();
+    window.location.href = '#banggia';
+  }
+
+  // Lọc sản phẩm theo danh mục
+  function filterProducts(category, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const cards = document.querySelectorAll('.product-card');
+    cards.forEach(card => {
+      const cardCat = card.getAttribute('data-category');
+      if (category === 'all' || cardCat === category) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
   }
 </script>
 
