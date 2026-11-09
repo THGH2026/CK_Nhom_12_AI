@@ -1,0 +1,1197 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NHÓM 12 — BÁNH PÍA SÓC TRĂNG | ĐỒ ÁN AI ỨNG DỤNG (DHV)</title>
+<meta name="description" content="Trang web đồ án học phần AI ứng dụng (06050), Đề tài Bánh Pía Sóc Trăng - Nhóm 12, Trường Đại học Hùng Vương TP.HCM.">
+<link rel="icon" type="image/png" href="imgs/DHV_Logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --do-dam: #8B1E2E;
+  --do-tuoi: #A82335;
+  --do-kem: #C43A4D;
+  --vang-kem: #FAF6F0;
+  --trang: #FFFFFF;
+  --chu-toi: #2B2620;
+  --chu-mo: #666059;
+  --khung-vien: #EAE2D5;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background-color: var(--vang-kem);
+  color: var(--chu-toi);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1, h2, h3, .font-serif {
+  font-family: 'Playfair Display', serif;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+
+.wrap { width: min(1140px, 92vw); margin: 0 auto; }
+
+/* TOP BANNER & NAVBAR */
+.top-bar {
+  background: var(--do-dam);
+  color: #FFF;
+  text-align: center;
+  padding: 8px 15px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--khung-vien);
+  padding: 12px 0;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-box img { height: 32px; width: auto; }
+
+.logo-text {
+  font-weight: 800;
+  color: var(--do-dam);
+  font-size: 20px;
+  line-height: 1.1;
+}
+.logo-sub {
+  display: block;
+  font-size: 10px;
+  color: #B8860B;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  gap: 18px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.nav-links a:hover { color: var(--do-dam); }
+
+.btn-order-top {
+  background: var(--do-dam);
+  color: #FFF !important;
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 13px;
+  transition: background 0.2s;
+}
+.btn-order-top:hover { background: var(--do-tuoi); }
+
+@media(max-width: 900px) { .nav-links { display: none; } }
+
+/* HERO SECTION */
+.hero {
+  position: relative;
+  min-height: 85vh;
+  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)), url('imgs/hero.jpg') center/cover no-repeat;
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
+}
+
+.badge-dacsan {
+  display: inline-block;
+  color: #FFF;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  margin-bottom: 15px;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+  margin: 0 0 15px;
+  line-height: 1.05;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  max-width: 580px;
+  margin-bottom: 30px;
+  color: rgba(255,255,255,0.9);
+}
+
+.hero-btns {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 45px;
+}
+
+.btn-primary {
+  background: var(--do-dam);
+  color: #FFF;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 14px;
+}
+.btn-secondary {
+  background: #E5A93C;
+  color: #2B2620;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: start;
+  gap: 35px;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  padding-top: 20px;
+  margin-top: 25px;
+}
+
+.stat-item {
+  text-align: left;
+}
+
+.stat-item b { 
+  display: block; 
+  font-size: 1.5rem; 
+  font-weight: 700; 
+  color: #FFFFFF;
+  line-height: 1.2;
+  white-space: nowrap; 
+} 
+
+.stat-item span { 
+  font-size: 11px; 
+  opacity: 0.85; 
+  text-transform: uppercase; 
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.9);
+  white-space: nowrap; 
+}
+
+@media(max-width: 768px) { 
+  .hero-stats { 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+  } 
+}
+
+/* KHỐI 4 ĐẶC ĐIỂM NỔI BẬT */
+.features-bar {
+  background: #ffffff;
+  padding: 35px 0;
+  border-bottom: 1px solid var(--khung-vien);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.feature-col {
+  text-align: center;
+  padding: 10px 20px;
+  position: relative;
+}
+
+.feature-col:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 15%;
+  height: 70%;
+  width: 1px;
+  background-color: var(--khung-vien);
+}
+
+.feature-col h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--do-dam);
+  margin: 0 0 6px 0;
+}
+
+.feature-col p {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--chu-mo);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+@media(max-width: 768px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .feature-col:not(:last-child)::after {
+    display: none;
+  }
+}
+
+/* COMMON SECTION STYLES */
+.sec-tag {
+  display: inline-block;
+  background: var(--do-dam);
+  color: #FFF;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 3px;
+  margin-bottom: 15px;
+  letter-spacing: 0.1em;
+}
+
+.sec-title {
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  margin: 0 0 12px;
+  color: var(--do-dam);
+}
+
+.sec-desc {
+  color: var(--chu-mo);
+  margin-bottom: 40px;
+  font-size: 16px;
+}
+
+/* 01 - GIỚI THIỆU */
+.sec-gioithieu { padding: 90px 0; background: var(--vang-kem); }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+@media(max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+
+.list-check { list-style: none; padding: 0; margin: 25px 0 0; }
+.list-check li { margin-bottom: 16px; position: relative; padding-left: 30px; font-size: 15px; }
+.list-check li::before {
+  content: "✓";
+  position: absolute;
+  left: 0; top: 0;
+  width: 20px; height: 20px;
+  background: var(--do-dam);
+  color: #FFF;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.img-stack { display: flex; flex-direction: column; gap: 20px; }
+.img-box { 
+  border-radius: 8px; 
+  overflow: hidden; 
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06); 
+  background: #FFF;
+  border: 1px solid var(--khung-vien);
+}
+.img-box img { width: 100%; height: 240px; object-fit: cover; }
+.img-cap { text-align: center; font-size: 12px; color: var(--chu-mo); padding: 8px 0; font-style: italic; background: #FFF; }
+
+/* 02 - SẢN PHẨM */
+.sec-sanpham { padding: 90px 0; background: #FFF; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+@media(max-width: 900px) { .grid-3 { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width: 600px) { .grid-3 { grid-template-columns: 1fr; } }
+
+.product-card {
+  border: 1px solid var(--khung-vien);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #FFF;
+  display: flex;
+  flex-direction: column;
+}
+.product-card img { height: 210px; width: 100%; object-fit: cover; }
+.product-info { padding: 20px; display: flex; flex-direction: column; flex: 1; }
+.rating { color: #E5A93C; font-size: 14px; margin-bottom: 6px; }
+.product-info h3 { font-size: 16px; margin: 0 0 6px; color: var(--chu-toi); font-weight: 700; }
+.product-info p { font-size: 13px; color: var(--chu-mo); margin: 0 0 15px; flex: 1; }
+.product-action { display: flex; justify-content: space-between; align-items: center; }
+.price { font-weight: 800; color: var(--do-dam); font-size: 17px; }
+.btn-add { background: var(--do-dam); color: #FFF; border: 0; padding: 8px 14px; border-radius: 4px; font-size: 12px; font-weight: 700; cursor: pointer; }
+
+/* 03 - CẬN CẢNH */
+.sec-cancanh { padding: 90px 0; background: var(--vang-kem); }
+.can-canh-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+@media(max-width: 768px) { .can-canh-box { grid-template-columns: 1fr; } }
+
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+@media(max-width: 768px) { .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width: 480px) { .grid-4 { grid-template-columns: 1fr; } }
+
+.card-num {
+  background: #FFF;
+  padding: 25px 20px;
+  border-radius: 8px;
+  border: 1px solid var(--khung-vien);
+}
+.card-num.highlight { background: var(--do-dam); color: #FFF; }
+.card-num .n-title { font-size: 2.2rem; font-weight: 800; color: #E5A93C; margin-bottom: 5px; }
+.card-num h4 { margin: 0 0 8px; font-size: 15px; text-transform: uppercase; }
+.card-num p { margin: 0; font-size: 13px; color: var(--chu-mo); }
+.card-num.highlight p { color: rgba(255,255,255,0.9); }
+
+/* 04 - QUY TRÌNH */
+.sec-quytrinh { padding: 90px 0; background: #FFF; }
+
+/* 05 - VIDEO (CUSTOM POSTER CHO YOUTUBE) */
+.sec-video { padding: 90px 0; background: var(--do-dam); color: #FFF; }
+.sec-video .sec-title { color: #FFF; }
+.sec-video .sec-desc { color: rgba(255,255,255,0.8); }
+
+.youtube-poster-box {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Tỷ lệ 16:9 */
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+.youtube-poster-box iframe, 
+.youtube-poster-box .thumb-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.youtube-poster-box .thumb-img {
+  object-fit: cover;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+.youtube-poster-box .play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 68px;
+  height: 48px;
+  background-color: rgba(23, 23, 23, 0.8);
+  border-radius: 12px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.youtube-poster-box .play-btn::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0 10px 16px;
+  border-color: transparent transparent transparent #ffffff;
+}
+.youtube-poster-box.clicked .thumb-img,
+.youtube-poster-box.clicked .play-btn {
+  display: none;
+}
+
+.video-sub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media(max-width: 640px) { .video-sub-grid { grid-template-columns: 1fr; } }
+
+/* 06 - CÂU CHUYỆN */
+.sec-cauchuyen { padding: 90px 0; background: var(--vang-kem); }
+
+/* 07 - BẢNG GIÁ & ĐẶT HÀNG */
+.sec-banggia { padding: 90px 0; background: #FFF; }
+.table-gia {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 25px;
+}
+.table-gia th { background: var(--do-dam); color: #FFF; padding: 12px; text-align: left; font-size: 14px; }
+.table-gia td { padding: 14px 12px; border-bottom: 1px solid var(--khung-vien); font-size: 14px; }
+.table-gia tr:nth-child(even) { background: #FAFAFA; }
+
+.form-dathang {
+  background: #FFF;
+  border: 1px solid var(--khung-vien);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+}
+.form-group { margin-bottom: 18px; }
+.form-group label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 6px; text-transform: uppercase; }
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--khung-vien);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+/* 08 - ĐÁNH GIÁ & HỎI ĐÁP (FAQ ACCORDION) */
+.sec-danhgia { padding: 90px 0; background: var(--vang-kem); }
+
+.faq-item {
+  background: #FFF;
+  border-radius: 8px;
+  border: 1px solid var(--khung-vien);
+  margin-bottom: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  transition: all 0.3s ease;
+}
+
+.faq-question {
+  padding: 18px 20px;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--chu-toi);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+.faq-question::after {
+  content: "+";
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--do-dam);
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question::after {
+  content: "−";
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  font-size: 14.5px;
+  color: var(--chu-mo);
+  line-height: 1.6;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 150px;
+  padding: 0 20px 18px 20px;
+}
+
+/* FOOTER */
+footer {
+  background: var(--do-dam);
+  color: #FFF;
+  padding: 60px 0 40px;
+  text-align: center;
+}
+.footer-info {
+  font-size: 13px;
+  opacity: 0.85;
+  margin-bottom: 25px;
+  line-height: 1.8;
+}
+
+.box-thanhvien {
+  background: #FFF;
+  color: var(--chu-toi);
+  max-width: 820px;
+  margin: 0 auto 30px;
+  padding: 25px 30px;
+  border-radius: 8px;
+  text-align: left;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+.box-thanhvien h5 { margin: 0 0 12px; font-size: 15px; color: var(--do-dam); text-transform: uppercase; border-bottom: 2px solid var(--khung-vien); padding-bottom: 8px; }
+
+.member-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 25px;
+  font-size: 13.5px;
+  color: var(--chu-toi);
+}
+@media(max-width: 600px) { .member-grid { grid-template-columns: 1fr; } }
+
+.btn-top {
+  display: inline-block;
+  background: #E5A93C;
+  color: #2B2620;
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BANNER -->
+<div class="top-bar">
+  ★ HOTLINE: 0909 123 456 – TP. SÓC TRĂNG &nbsp;|&nbsp; MIỄN PHÍ VẬN CHUYỂN ĐƠN TỪ 200K
+</div>
+
+<!-- NAVIGATION BAR -->
+<nav>
+  <div class="wrap nav-container">
+    <div class="logo-box">
+      <img src="imgs/DHV_Logo.png" alt="DHV Logo">
+      <a href="#" class="logo-text">
+        NHÓM 12
+        <span class="logo-sub">BÁNH PÍA SÓC TRĂNG</span>
+      </a>
+    </div>
+    <div class="nav-links">
+      <a href="#gioithieu">GIỚI THIỆU</a>
+      <a href="#sanpham">SẢN PHẨM</a>
+      <a href="#quytrinh">QUY TRÌNH</a>
+      <a href="#video">VIDEO</a>
+      <a href="#cauchuyen">CÂU CHUYỆN</a>
+      <a href="#banggia">BẢNG GIÁ</a>
+      <a href="#danhgia">LIÊN HỆ</a>
+    </div>
+    <a href="#banggia" class="btn-order-top">ĐẶT HÀNG →</a>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="wrap">
+    <div style="display: inline-block; border: 1px solid #E5A93C; padding: 6px 16px; border-radius: 30px; margin-bottom: 20px;">
+      <span class="badge-dacsan" style="margin: 0; color: #E5A93C; font-size: 11px; letter-spacing: 0.15em;">★ ĐẶC SẢN SÓC TRĂNG ★</span>
+    </div>
+
+    <h1 style="font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 5.5vw, 4.5rem); line-height: 1.1; margin: 0 0 10px; color: #FFFFFF;">
+      BÁNH PÍA<br>
+      <span style="color: #E5A93C;">NHÓM 12</span>
+    </h1>
+
+    <p style="font-size: 1.1rem; max-width: 580px; margin-bottom: 30px; color: rgba(255,255,255,0.9);">
+      Vỏ ngàn lớp tách giòn. Nhân sầu riêng thơm lừng. Trừng muối béo ngậy. Bánh mới nướng mỗi ngày, giao nóng tới tay bạn.
+    </p>
+    
+    <div class="hero-btns">
+      <a href="#sanpham" class="btn-primary" style="background: #A82335; padding: 14px 28px; border-radius: 4px; font-weight: 700;">XEM SẢN PHẨM →</a>
+      <a href="#quytrinh" class="btn-secondary" style="background: #D4AC35; color: #1a1a1a; padding: 14px 28px; border-radius: 4px; font-weight: 700;">▶ XEM CÁCH LÀM BÁNH</a>
+    </div>
+
+    <div class="hero-stats" style="border-top: 1px solid rgba(255,255,255,0.25); padding-top: 25px; margin-top: 20px;">
+      <div class="stat-item"><b style="color: #FFFFFF;">30 LỚP</b><span style="color: rgba(255,255,255,0.8);">VỎ CÁN TAY</span></div>
+      <div class="stat-item"><b style="color: #FFFFFF;">21 NGÀY</b><span style="color: rgba(255,255,255,0.8);">MUỐI TRỨNG</span></div>
+      <div class="stat-item"><b style="color: #FFFFFF;">12+</b><span style="color: rgba(255,255,255,0.8);">LOẠI NHÂN</span></div>
+      <div class="stat-item"><b style="color: #FFFFFF;">4.9/5 ★</b><span style="color: rgba(255,255,255,0.8);">ĐÁNH GIÁ KHÁCH HÀNG</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- KHỐI 4 ĐẶC ĐIỂM NỔI BẬT -->
+<div class="features-bar">
+  <div class="wrap">
+    <div class="features-grid">
+      <div class="feature-col">
+        <h3>BÁNH MỚI</h3>
+        <p>Nướng mỗi ngày</p>
+      </div>
+      <div class="feature-col">
+        <h3>180°C</h3>
+        <p>Nướng 20 phút, vàng đều</p>
+      </div>
+      <div class="feature-col">
+        <h3>1–3 NGÀY</h3>
+        <p>Giao hàng toàn quốc</p>
+      </div>
+      <div class="feature-col">
+        <h3>30 NGÀY</h3>
+        <p>Hạn sử dụng</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 01 - GIỚI THIỆU -->
+<section class="sec-gioithieu" id="gioithieu" style="padding: 90px 0; background: var(--vang-kem);">
+  <div class="wrap">
+    <div class="grid-2" style="align-items: center; gap: 50px;">
+      <div>
+        <span class="sec-tag" style="margin-bottom: 12px; display: inline-block;">01 — GIỚI THIỆU</span>
+        <h2 class="sec-title" style="font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.2vw, 2.8rem); color: var(--do-dam); line-height: 1.15; margin-bottom: 20px;">
+          Bánh pía ngon<br>là phải thơm từ xa.
+        </h2>
+        
+        <p style="color: var(--chu-toi); font-size: 15.5px; line-height: 1.7; margin-bottom: 15px;">
+          Nhóm 12 bắt đầu từ một sở thích rất đơn giản: thích ăn bánh pía. Ăn nhiều rồi thì muốn tự làm, làm nhiều rồi thì muốn làm cho mọi người cùng ăn.
+        </p>
+        <p style="color: var(--chu-mo); font-size: 15px; line-height: 1.7; margin-bottom: 25px;">
+          Chúng tôi chọn sầu riêng Ri6 chín cây, đậu xanh cà vỏ, trứng vịt muối 21 ngày. Không chạy theo số lượng, chỉ làm vừa đủ để mỗi mẻ bánh đều ngon như mẻ đầu tiên.
+        </p>
+        
+        <ul class="list-check" style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 14px; position: relative; padding-left: 32px; font-size: 14.5px;">
+            <span style="position: absolute; left: 0; top: 0; width: 22px; height: 22px; background: var(--do-dam); color: #FFF; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold;">✓</span>
+            <b>Sầu riêng Ri6 chín cây:</b> Thơm, béo, không gắt, không dùng hương liệu.
+          </li>
+          <li style="margin-bottom: 14px; position: relative; padding-left: 32px; font-size: 14.5px;">
+            <span style="position: absolute; left: 0; top: 0; width: 22px; height: 22px; background: var(--do-dam); color: #FFF; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold;">✓</span>
+            <b>Trứng muối 21 ngày:</b> Đỏ cam, bùi béo, là linh hồn của chiếc bánh.
+          </li>
+          <li style="margin-bottom: 14px; position: relative; padding-left: 32px; font-size: 14.5px;">
+            <span style="position: absolute; left: 0; top: 0; width: 22px; height: 22px; background: var(--do-dam); color: #FFF; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold;">✓</span>
+            <b>Vỏ cán tay 30 lớp:</b> Giòn, xốp, tách lớp khi cắn.
+          </li>
+          <li style="margin-bottom: 0; position: relative; padding-left: 32px; font-size: 14.5px;">
+            <span style="position: absolute; left: 0; top: 0; width: 22px; height: 22px; background: var(--do-dam); color: #FFF; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold;">✓</span>
+            <b>Bánh mới mỗi ngày:</b> Nướng xong để nguội rồi mới đóng hộp, giao đi.
+          </li>
+        </ul>
+      </div>
+
+      <div class="img-stack" style="display: flex; flex-direction: column; gap: 22px;">
+        <div class="img-box" style="border-radius: 10px; overflow: hidden; background: #FFF; border: 1px solid var(--khung-vien); box-shadow: 0 8px 20px rgba(0,0,0,0.05); transition: transform 0.3s ease;">
+          <img src="imgs/hero.jpg" alt="Hộp bánh pía Sóc Trăng" style="width: 100%; height: 220px; object-fit: cover; display: block;">
+          <div class="img-cap" style="text-align: center; font-size: 12.5px; color: var(--chu-mo); padding: 10px 0; font-style: italic; background: #FFF; border-top: 1px solid #F5F0EB;">Bánh pía Sóc Trăng</div>
+        </div>
+        
+        <div class="img-box" style="border-radius: 10px; overflow: hidden; background: #FFF; border: 1px solid var(--khung-vien); box-shadow: 0 8px 20px rgba(0,0,0,0.05); transition: transform 0.3s ease;">
+          <img src="imgs/frame.jpg" alt="Bánh pía cắt ra" style="width: 100%; height: 220px; object-fit: cover; display: block;">
+          <div class="img-cap" style="text-align: center; font-size: 12.5px; color: var(--chu-mo); padding: 10px 0; font-style: italic; background: #FFF; border-top: 1px solid #F5F0EB;">Bánh pía cắt ra</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 - SẢN PHẨM -->
+<section class="sec-sanpham" id="sanpham">
+  <div class="wrap">
+    <span class="sec-tag">02 — SẢN PHẨM</span>
+    <h2 class="sec-title">Chọn chiếc bánh của bạn.</h2>
+    <p class="sec-desc">6 vị được khách đặt nhiều nhất. Sản phẩm chất lượng thủ công cao cấp.</p>
+
+    <div class="grid-3">
+      <div class="product-card">
+        <img src="imgs/banhpia_saurieng.jpg" alt="Bánh Pía Sầu Riêng Trứng Muối">
+        <div class="product-info">
+          <div class="rating">★★★★★</div>
+          <h3>BÁNH PÍA SẦU RIÊNG TRỨNG MUỐI</h3>
+          <p>Bán chạy nhất. Sầu riêng Ri6 + trứng muối béo ngậy.</p>
+          <div class="product-action">
+            <span class="price">85.000đ</span>
+            <button class="btn-add">THÊM VÀO GIỎ →</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="imgs/banhpia_dauxanh.jpg" alt="Bánh Pía Đậu Xanh Trứng">
+        <div class="product-info">
+          <div class="rating">★★★★☆</div>
+          <h3>BÁNH PÍA ĐẬU XANH TRỨNG</h3>
+          <p>Truyền thống. Ngọt vừa, thơm đậu xanh.</p>
+          <div class="product-action">
+            <span class="price">65.000đ</span>
+            <button class="btn-add">THÊM VÀO GIỎ →</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="imgs/banhpia_khoaimon.jpg" alt="Bánh Pía Khoai Môn Trứng">
+        <div class="product-info">
+          <div class="rating">★★★★★</div>
+          <h3>BÁNH PÍA KHOAI MÔN TRỨNG</h3>
+          <p>Khoai môn tím dẻo, bùi, màu đẹp.</p>
+          <div class="product-action">
+            <span class="price">70.000đ</span>
+            <button class="btn-add">THÊM VÀO GIỎ →</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="imgs/banhpia_kimsa.jpg" alt="Bánh Pía Kim Sa Trứng Chảy">
+        <div class="product-info">
+          <div class="rating">★★★★★</div>
+          <h3>BÁNH PÍA KIM SA TRỨNG CHẢY</h3>
+          <p>Nhân trứng chảy béo ngậy, cắn là chảy.</p>
+          <div class="product-action">
+            <span class="price">95.000đ</span>
+            <button class="btn-add">THÊM VÀO GIỎ →</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="imgs/banhpia_chay_dauxanh.jpg" alt="Bánh Pía Chay">
+        <div class="product-info">
+          <div class="rating">★★★★☆</div>
+          <h3>BÁNH PÍA CHAY</h3>
+          <p>Không trứng, không sữa, thanh đạm.</p>
+          <div class="product-action">
+            <span class="price">55.000đ</span>
+            <button class="btn-add">THÊM VÀO GIỎ →</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="imgs/banhpia_khoaitay.jpg" alt="Bánh Pía Khoai Tây">
+        <div class="product-info">
+          <div class="rating">★★★★★</div>
+          <h3>BÁNH PÍA KHOAI TÂY – MỚI</h3>
+          <p>Vị mới độc đáo của Nhóm 12.</p>
+          <div class="product-action">
+            <span class="price">88.000đ</span>
+            <button class="btn-add">THÊM VÀO GIỎ →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 - CẬN CẢNH -->
+<section class="sec-cancanh" style="padding: 90px 0; background: var(--vang-kem);">
+  <div class="wrap">
+    <span class="sec-tag">03 — CẬN CẢNH</span>
+    <h2 class="sec-title">Bên trong một chiếc bánh pía.</h2>
+    <p class="sec-desc">Cắt ra là thấy: vỏ tách lớp, nhân dẻo thơm, trứng muối đỏ cam.</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; margin-bottom: 40px;">
+      <div style="border-radius: 10px; overflow: hidden; background: #FFF; border: 1px solid var(--khung-vien); box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
+        <img src="imgs/frame.jpg" alt="Cận cảnh bánh pía cắt ra" style="width: 100%; height: 280px; object-fit: cover; display: block;">
+        <div style="text-align: center; font-size: 12.5px; color: var(--chu-mo); padding: 10px 0; font-style: italic; background: #FFF; border-top: 1px solid #F5F0EB;">Bánh pía trứng muối</div>
+      </div>
+
+      <div style="border-radius: 10px; overflow: hidden; background: #FFF; border: 1px solid var(--khung-vien); box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
+        <img src="imgs/banhbiabachvi.jpg" alt="Nhân bánh pía sầu riêng" style="width: 100%; height: 280px; object-fit: cover; display: block;">
+        <div style="text-align: center; font-size: 12.5px; color: var(--chu-mo); padding: 10px 0; font-style: italic; background: #FFF; border-top: 1px solid #F5F0EB;">Từng lớp nhân sầu riêng thơm lừng</div>
+      </div>
+    </div>
+
+    <div style="text-align: center; max-width: 800px; margin: 0 auto 40px;">
+      <p style="font-size: 16px; color: var(--chu-toi); line-height: 1.6;">
+        Từng lớp nhân bánh được Nhóm 12 chuẩn bị tỉ mỉ để giữ trọn vẹn hương vị truyền thống Sóc Trăng — nơi hội tụ của vỏ ngàn lớp tách giòn và vị béo ngậy đặc trưng.
+      </p>
+    </div>
+
+    <div class="grid-4">
+      <div class="card-num">
+        <div class="n-title">01</div>
+        <h4>VỎ BÁNH</h4>
+        <p>20–30 lớp bột cán tay. Giòn, xốp, tách lớp khi cắn.</p>
+      </div>
+      <div class="card-num">
+        <div class="n-title">02</div>
+        <h4>NHÂN</h4>
+        <p>Sầu riêng Ri6 + đậu xanh sên 2 tiếng. Dẻo, thơm, ngọt vừa.</p>
+      </div>
+      <div class="card-num">
+        <div class="n-title">03</div>
+        <h4>TRỨNG MUỐI</h4>
+        <p>Trứng vịt muối 21 ngày. Đỏ cam, bùi béo.</p>
+      </div>
+      <div class="card-num highlight">
+        <div class="n-title" style="color:#FFF">04</div>
+        <h4>ĂN SAO CHO NGON?</h4>
+        <p>Hâm nồi chiên không dầu 160°C – 5 phút, ăn kèm trà nóng.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 - QUY TRÌNH -->
+<section class="sec-quytrinh" id="quytrinh">
+  <div class="wrap">
+    <span class="sec-tag">04 — QUY TRÌNH</span>
+    <h2 class="sec-title">8 bước. Không đường tắt.</h2>
+    <p class="sec-desc">Đây là cách chúng tôi làm ra từng mẻ bánh.</p>
+
+    <div class="grid-4">
+      <div class="card-num">
+        <div class="n-title">01</div>
+        <h4>CHỌN NGUYÊN LIỆU</h4>
+        <p>Sầu riêng Ri6, đậu xanh cà vỏ, trứng vịt, bột mì số 11.</p>
+      </div>
+      <div class="card-num">
+        <div class="n-title">02</div>
+        <h4>SÊN NHÂN</h4>
+        <p>Sên liên tục 2 tiếng đến khi dẻo, không dính chảo, trộn sầu riêng tươi.</p>
+      </div>
+      <div class="card-num">
+        <div class="n-title">03</div>
+        <h4>MUỐI TRỨNG</h4>
+        <p>Ngâm 21 ngày. Lòng đỏ phải đỏ cam, cứng, không tanh.</p>
+      </div>
+      <div class="card-num">
+        <div class="n-title">04</div>
+        <h4>LÀM VỎ</h4>
+        <p>2 loại bột, cán + xếp chồng, cán lại 3 lần để tạo 30 lớp.</p>
+      </div>
+      <div class="card-num" style="margin-top:20px">
+        <div class="n-title">05</div>
+        <h4>GÓI BÁNH</h4>
+        <p>Nhân + trứng vào giữa, gói kín, vo tròn, ấn dẹt, phết trứng + rắc mè.</p>
+      </div>
+      <div class="card-num" style="margin-top:20px">
+        <div class="n-title">06</div>
+        <h4>NƯỚNG</h4>
+        <p>180°C – 20 phút. Lò làm nóng trước 10 phút.</p>
+      </div>
+      <div class="card-num" style="margin-top:20px">
+        <div class="n-title">07</div>
+        <h4>ĐỂ NGUỘI</h4>
+        <p>Để 6 tiếng cho vỏ mềm lại, dầu từ nhân thấm ra vỏ.</p>
+      </div>
+      <div class="card-num" style="margin-top:20px">
+        <div class="n-title">08</div>
+        <h4>ĐÓNG GÓI</h4>
+        <p>Hút chân không, ghi ngày làm, HSD 30 ngày, giao cho khách.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 - VIDEO (CÓ SẴN ẢNH BÌA THUMBNAIL TỪ YOUTUBE) -->
+<section class="sec-video" id="video">
+  <div class="wrap">
+    <span class="sec-tag" style="background:#FFF;color:var(--do-dam)">05 — VIDEO</span>
+    <h2 class="sec-title">Xem cách làm bánh pía.</h2>
+    <p class="sec-desc">3 video về bánh pía Sóc Trăng – từ giới thiệu chung đến hướng dẫn làm chi tiết.</p>
+
+    <!-- Video chính (Video 1: 0tIfoVxh-yE) -->
+    <div style="margin-bottom: 30px;">
+      <div class="youtube-poster-box" onclick="loadVideo(this, '0tIfoVxh-yE')">
+        <img src="https://img.youtube.com/vi/0tIfoVxh-yE/hqdefault.jpg" alt="Video 1" class="thumb-img">
+        <div class="play-btn"></div>
+      </div>
+    </div>
+
+    <!-- Video phụ (Video 2: DGXHh-6xF-Y & Video 3: BCis8Wcoo8o) -->
+    <div class="video-sub-grid">
+      <div style="background:rgba(0,0,0,0.25);padding:15px;border-radius:8px">
+        <div class="youtube-poster-box" onclick="loadVideo(this, 'DGXHh-6xF-Y')" style="margin-bottom:10px;">
+          <img src="https://img.youtube.com/vi/DGXHh-6xF-Y/hqdefault.jpg" alt="Video 2" class="thumb-img">
+          <div class="play-btn"></div>
+        </div>
+        <b style="font-size:14px; color:#FFF;">Bánh Pía Thịt Lạp – Đậm vị quê hương Sóc Trăng</b>
+      </div>
+      
+      <div style="background:rgba(0,0,0,0.25);padding:15px;border-radius:8px">
+        <div class="youtube-poster-box" onclick="loadVideo(this, 'BCis8Wcoo8o')" style="margin-bottom:10px;">
+          <img src="https://img.youtube.com/vi/BCis8Wcoo8o/hqdefault.jpg" alt="Video 3" class="thumb-img">
+          <div class="play-btn"></div>
+        </div>
+        <b style="font-size:14px; color:#FFF;">Cách làm Bánh Pía Nhân Thập Cẩm Trứng Muối</b>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 - CÂU CHUYỆN -->
+<section class="sec-cauchuyen" id="cauchuyen">
+  <div class="wrap">
+    <span class="sec-tag">06 — CÂU CHUYỆN</span>
+    <h2 class="sec-title">Từ Triều Châu đến Sóc Trăng.</h2>
+    
+    <div class="grid-2" style="margin-bottom: 30px;">
+      <div>
+        <div class="img-box" style="margin-bottom: 12px;">
+          <img src="imgs/TrieuChau.jpg" alt="Thế kỷ 17 Triều Châu" style="width: 100%; height: 240px; object-fit: cover;">
+          <div class="img-cap">Thế kỷ 17: Người Hoa Triều Châu di cư đến Sóc Trăng, mang theo nghề làm bánh nướng nhiều lớp.</div>
+        </div>
+      </div>
+      
+      <div>
+        <div class="img-box" style="margin-bottom: 12px;">
+          <img src="imgs/iris.jpg" alt="1900 Vũng Thơm" style="width: 100%; height: 240px; object-fit: cover;">
+          <div class="img-cap">1900: Lò bánh đầu tiên ở Vũng Thơm. Người thợ bắt đầu cho sầu riêng miền Tây vào nhân.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background: #FFF; padding: 25px 30px; border-radius: 8px; border-left: 5px solid var(--do-dam); box-shadow: 0 4px 16px rgba(0,0,0,0.04); text-align: center;">
+      <p style="margin: 0 0 10px; font-size: 16px; color: var(--chu-toi);">
+        <b>Nay:</b> Bánh pía đã trở thành đặc sản nổi tiếng nhất Sóc Trăng.
+      </p>
+      <p style="margin: 0 0 10px; font-size: 17px; font-weight: 700; color: var(--do-dam);">
+        <b>2026:</b> Nhóm 12 tiếp nối – làm bánh pía và kể lại câu chuyện này theo cách của người trẻ.
+      </p>
+      <p style="margin: 0; font-size: 15px; font-style: italic; color: var(--chu-mo);">
+        Giữ trọn hương vị truyền thống, lan tỏa niềm tự hào đặc sản quê hương!
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 07 - BẢNG GIÁ & ĐẶT HÀNG -->
+<section class="sec-banggia" id="banggia">
+  <div class="wrap">
+    <span class="sec-tag">07 — BẢNG GIÁ & ĐẶT HÀNG</span>
+    <h2 class="sec-title">Giá bánh.</h2>
+
+    <div class="grid-2">
+      <div>
+        <table class="table-gia">
+          <thead>
+            <tr>
+              <th>SẢN PHẨM</th>
+              <th>HỘP 2</th>
+              <th>HỘP 4</th>
+              <th>HỘP 6</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Sầu Riêng Trứng Muối</b><br><small style="color:var(--chu-mo)">Bán chạy nhất</small></td>
+              <td>85K</td>
+              <td>165K</td>
+              <td>240K</td>
+            </tr>
+            <tr>
+              <td><b>Đậu Xanh Trứng</b><br><small style="color:var(--chu-mo)">Truyền thống</small></td>
+              <td>65K</td>
+              <td>125K</td>
+              <td>180K</td>
+            </tr>
+            <tr>
+              <td><b>Khoai Môn Trứng</b><br><small style="color:var(--chu-mo)">Dẻo, bùi</small></td>
+              <td>70K</td>
+              <td>135K</td>
+              <td>195K</td>
+            </tr>
+            <tr>
+              <td><b>Kim Sa Trứng Chảy</b><br><small style="color:var(--chu-mo)">Trứng chảy</small></td>
+              <td>95K</td>
+              <td>185K</td>
+              <td>270K</td>
+            </tr>
+            <tr>
+              <td><b>Bánh Pía Chay</b><br><small style="color:var(--chu-mo)">Không trứng, không sữa</small></td>
+              <td>55K</td>
+              <td>105K</td>
+              <td>150K</td>
+            </tr>
+            <tr>
+              <td><b>Bánh Pía Khoai Tây</b><br><small style="color:var(--chu-mo)">Vị mới</small></td>
+              <td>88K</td>
+              <td>170K</td>
+              <td>245K</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="form-dathang">
+        <h3 style="margin-top:0;color:var(--do-dam)">Đặt hàng nhanh</h3>
+        <p style="font-size:13px;color:var(--chu-mo)">Điền form, chúng tôi sẽ gọi lại xác nhận. Freeship đơn từ 200K.</p>
+
+        <form id="orderForm" onsubmit="handleOrder(event)">
+          <div class="form-group">
+            <label>HỌ TÊN *</label>
+            <input type="text" id="cusName" placeholder="VD: Nguyễn Huy Khiêm" required>
+          </div>
+          <div class="form-group">
+            <label>SĐT *</label>
+            <input type="text" id="cusPhone" placeholder="VD: 0909 xxx xxx" required>
+          </div>
+          <div class="form-group">
+            <label>ĐỊA CHỈ</label>
+            <input type="text" placeholder="VD: TP. Sóc Trăng">
+          </div>
+          <div class="form-group">
+            <label>CHỌN SẢN PHẨM</label>
+            <select>
+              <option>Sầu Riêng Trứng Muối – 85.000đ</option>
+              <option>Đậu Xanh Trứng – 65.000đ</option>
+              <option>Khoai Môn Trứng – 70.000đ</option>
+              <option>Kim Sa Trứng Chảy – 95.000đ</option>
+              <option>Bánh Pía Chay – 55.000đ</option>
+              <option>Bánh Pía Khoai Tây – 88.000đ</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>SỐ LƯỢNG HỘP</label>
+            <input type="number" value="1" min="1">
+          </div>
+          <div class="form-group">
+            <label>GHI CHÚ</label>
+            <textarea rows="2" placeholder="Ít ngọt, giao giờ hành chính..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;border:0;padding:12px;cursor:pointer;">✔ ĐẶT HÀNG NGAY</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 - ĐÁNH GIÁ & HỎI ĐÁP -->
+<section class="sec-danhgia" id="danhgia">
+  <div class="wrap">
+    <span class="sec-tag">08 — ĐÁNH GIÁ & HỎI ĐÁP</span>
+    <h2 class="sec-title">Khách hàng nói gì?</h2>
+
+    <div class="grid-2">
+      <div>
+        <div style="background:#FFF;padding:20px;border-radius:8px;margin-bottom:15px;border:1px solid var(--khung-vien)">
+          <div style="color:#E5A93C">★★★★★</div>
+          <p style="font-size:14px;margin:8px 0">"Vỏ tách lớp, nhân sầu riêng thơm nức, trứng muối béo. Mua 4 hộp ăn hết trong 2 ngày."</p>
+          <small style="font-weight:700">– BÍCH NGỌC, SÓC TRĂNG</small>
+        </div>
+        <div style="background:#FFF;padding:20px;border-radius:8px;margin-bottom:15px;border:1px solid var(--khung-vien)">
+          <div style="color:#E5A93C">★★★★★</div>
+          <p style="font-size:14px;margin:8px 0">"Gửi ra Hà Nội mà bánh vẫn thơm, đóng gói kỹ. Mẹ mình khen quá trời."</p>
+          <small style="font-weight:700">– HUY KHIÊM, HÀ NỘI</small>
+        </div>
+        <div style="background:#FFF;padding:20px;border-radius:8px;border:1px solid var(--khung-vien)">
+          <div style="color:#E5A93C">★★★★★</div>
+          <p style="font-size:14px;margin:8px 0">"Kim sa trứng chảy là chân ái. Cắn một cái trứng chảy ra, béo ngậy. 10 điểm!"</p>
+          <small style="font-weight:700">– THU PHƯƠNG, TP.HCM</small>
+        </div>
+      </div>
+
+      <div>
+        <div class="faq-item">
+          <div class="faq-question">Bánh pía để được bao lâu?</div>
+          <div class="faq-answer">Để ngoài 7 ngày, tủ lạnh 30 ngày. Ngon nhất trong 3 ngày đầu sau khi nướng.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Ăn sao cho ngon nhất?</div>
+          <div class="faq-answer">Hâm nồi chiên không dầu 160°C – 5 phút, ăn kèm trà nóng. Vỏ sẽ giòn lại như mới nướng.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Người ăn chay ăn được không?</div>
+          <div class="faq-answer">Được. Có dòng bánh pía chay không trứng, không sữa, nhân đậu xanh, khoai môn.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Ship đi xa có bị hư không?</div>
+          <div class="faq-answer">Không. Đóng hộp hút chân không + thùng xốp, ship toàn quốc 1–3 ngày.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Bánh pía bao nhiêu calo?</div>
+          <div class="faq-answer">Khoảng 350–450 calo / 1 cái tùy nhân. Ăn 1/2 cái mỗi ngày là vừa.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="nhom">
+  <div class="wrap">
+    <h2 style="font-size:24px;margin:0 0 5px;color:#FFF">NHÓM 12</h2>
+    <div style="color:#E5A93C;font-size:12px;font-weight:700;letter-spacing:0.1em;margin-bottom:15px">ĐỒ ÁN KHỞI NGHIỆP — AI ỨNG DỤNG (06050)</div>
+    
+    <div class="footer-info">
+      Trường Đại học Hùng Vương TP. Hồ Chí Minh (DHV)<br>
+      Viện Công nghệ tiên tiến và Trí tuệ nhân tạo (AI)<br>
+      <b>Giảng viên hướng dẫn: TS. Nguyễn Quốc Trình</b>
+    </div>
+
+    <!-- KHỐI THÀNH VIÊN NHÓM 12 -->
+    <div class="box-thanhvien">
+      <h5>DANH SÁCH THÀNH VIÊN THỰC HIỆN — NHÓM 12</h5>
+      <div class="member-grid">
+        <div><b>1. Nguyễn Huy Khiêm</b> — MSSV: 2506AV0280</div>
+        <div><b>2. Lương Huỳnh Quốc Bảo</b> — MSSV: 2506AV0180</div>
+        <div><b>3. Nguyễn Thanh Hương</b> — MSSV: 2506AV0261</div>
+        <div><b>4. Trần Thị Thuý An</b> — MSSV: 2506AV0253</div>
+        <div><b>5. Phạm Thị Hồng Vân</b> — MSSV: 2506AV0290</div>
+        <div><b>6. Đặng Thị Ngọc</b> — MSSV: 2506AV0284</div>
+        <div><b>7. Lê Thị Dạ Thảo</b> — MSSV: 2506AV0246</div>
+        <div><b>8. Nguyễn Thị Bích Ngọc</b> — MSSV: 2506AV0340</div>
+        <div><b>9. Trần Thị Cẩm Nhung</b> — MSSV: 2506AV0151</div>
+        <div><b>10. Võ Tấn Phát</b> — MSSV: 2506AV0152</div>
+        <div><b>11. Ngô Văn Tuấn</b> — MSSV: 2506AV0266</div>
+        <div><b>12. Nguyễn Thanh Hồng Vân</b> — MSSV: 2506AV0268</div>
+        <div><b>13. Trần Hồng Ngân</b> — MSSV: 2506AV0264</div>
+        <div><b>14. Nguyễn Thanh Thùy Vân</b> — MSSV: 2506AV0269</div>
+        <div><b>15. Lê Bình Phương Thu</b> — MSSV: 2506AV0341</div>
+        <div><b>16. Nguyễn Hồng Nhã Trân</b> — MSSV: 2506AV0336</div>
+      </div>
+    </div>
+
+    <div style="font-size:12px;opacity:0.7">
+      2026 © NHÓM 12 — DHV AI LAB | ĐH HÙNG VƯƠNG TP.HCM
+    </div>
+
+    <a href="#" class="btn-top">↑ VỀ ĐẦU TRANG</a>
+  </div>
+</footer>
+
+<!-- JAVASCRIPT CHO HIỆU ỨNG FAQ, ĐẶT HÀNG VÀ TẢI VIDEO YOUTUBE -->
+<script>
+  document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+      const parentItem = question.parentElement;
+      parentItem.classList.toggle('active');
+    });
+  });
+
+  function handleOrder(event) {
+    event.preventDefault(); 
+    const name = document.getElementById('cusName').value.trim();
+    const phone = document.getElementById('cusPhone').value.trim();
+    
+    if (name && phone) {
+      alert(`🎉 Cảm ơn bạn ${name}!\n\nĐơn hàng đã được đặt thành công.\nHệ thống đã gửi tin nhắn xác nhận đến số điện thoại: ${phone}. Chúng tôi sẽ liên hệ lại với bạn sớm nhất!`);
+      document.getElementById('orderForm').reset();
+    } else {
+      alert('Vui lòng nhập đầy đủ Họ tên và Số điện thoại!');
+    }
+  }
+
+  // Hàm tự động tải và phát video YouTube khi người dùng bấm vào ảnh bìa
+  function loadVideo(container, videoId) {
+    container.classList.add('clicked');
+    const iframe = document.createElement('iframe');
+    iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1`);
+    iframe.setAttribute('title', 'YouTube video player');
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+    iframe.setAttribute('allowfullscreen', 'true');
+    container.appendChild(iframe);
+  }
+</script>
+
+</body>
+</html>
