@@ -402,7 +402,7 @@ nav {
 /* 04 - QUY TRÌNH */
 .sec-quytrinh { padding: 90px 0; background: #FFF; }
 
-/* 05 - VIDEO (CUSTOM POSTER CHO YOUTUBE) */
+/* 05 - VIDEO */
 .sec-video { padding: 90px 0; background: var(--do-dam); color: #FFF; }
 .sec-video .sec-title { color: #FFF; }
 .sec-video .sec-desc { color: rgba(255,255,255,0.8); }
@@ -410,7 +410,7 @@ nav {
 .youtube-poster-box {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* Tỷ lệ 16:9 */
+  padding-bottom: 56.25%;
   background: #000;
   border-radius: 8px;
   overflow: hidden;
@@ -493,7 +493,59 @@ nav {
   font-size: 14px;
 }
 
-/* 08 - ĐÁNH GIÁ & HỎI ĐÁP (FAQ ACCORDION) */
+/* KHU VỰC CHỌN SẢN PHẨM: HỘP NHỎ GỌN, TÊN VÀ GIÁ HIỆN TRÊN 1 HÀNG */
+.order-product-list {
+  border: 1px solid var(--khung-vien);
+  padding: 8px 12px;
+  border-radius: 6px;
+  max-height: 170px;
+  overflow-y: auto;
+  background: #FAFAFA;
+}
+.order-item-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 0;
+  border-bottom: 1px dashed var(--khung-vien);
+}
+.order-item-row:last-child {
+  border-bottom: none;
+}
+.order-item-row input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--do-dam);
+  cursor: pointer;
+}
+.order-item-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--chu-toi);
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.order-item-price {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--do-dam);
+  white-space: nowrap;
+}
+.order-qty-input {
+  width: 50px;
+  padding: 4px;
+  text-align: center;
+  border: 1px solid var(--khung-vien);
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 12px;
+  background: #FFF;
+}
+
+/* 08 - ĐÁNH GIÁ & HỎI ĐÁP */
 .sec-danhgia { padding: 90px 0; background: var(--vang-kem); }
 
 .faq-item {
@@ -927,14 +979,13 @@ footer {
   </div>
 </section>
 
-<!-- 05 - VIDEO (CÓ SẴN ẢNH BÌA THUMBNAIL TỪ YOUTUBE) -->
+<!-- 05 - VIDEO -->
 <section class="sec-video" id="video">
   <div class="wrap">
     <span class="sec-tag" style="background:#FFF;color:var(--do-dam)">05 — VIDEO</span>
     <h2 class="sec-title">Xem cách làm bánh pía.</h2>
     <p class="sec-desc">3 video về bánh pía Sóc Trăng – từ giới thiệu chung đến hướng dẫn làm chi tiết.</p>
 
-    <!-- Video chính (Video 1) -->
     <div style="margin-bottom: 30px;">
       <div class="youtube-poster-box" onclick="loadVideo(this, '0tIfoVxh-yE')">
         <img src="https://img.youtube.com/vi/0tIfoVxh-yE/hqdefault.jpg" alt="Video 1" class="thumb-img">
@@ -942,7 +993,6 @@ footer {
       </div>
     </div>
 
-    <!-- Video phụ (Video 2 & Video 3) -->
     <div class="video-sub-grid">
       <div style="background:rgba(0,0,0,0.25);padding:15px;border-radius:8px">
         <div class="youtube-poster-box" onclick="loadVideo(this, 'DGXHh-6xF-Y')" style="margin-bottom:10px;">
@@ -1059,9 +1109,9 @@ footer {
 
       <div class="form-dathang">
         <h3 style="margin-top:0;color:var(--do-dam)">Đặt hàng nhanh</h3>
-        <p style="font-size:13px;color:var(--chu-mo)">Điền form, chúng tôi sẽ gọi lại xác nhận. Freeship đơn từ 200K.</p>
+        <p style="font-size:13px;color:var(--chu-mo)">Chọn nhiều món, điền form, chúng tôi sẽ xuất hóa đơn và gọi lại xác nhận.</p>
 
-        <form id="orderForm" onsubmit="handleOrder(event)">
+        <form id="orderForm" onsubmit="handleFormOrder(event)">
           <div class="form-group">
             <label>HỌ TÊN *</label>
             <input type="text" id="cusName" placeholder="VD: Nguyễn Huy Khiêm" required>
@@ -1072,28 +1122,57 @@ footer {
           </div>
           <div class="form-group">
             <label>ĐỊA CHỈ</label>
-            <input type="text" placeholder="VD: TP. Sóc Trăng">
+            <input type="text" id="cusAddress" placeholder="VD: TP. Sóc Trăng">
           </div>
+          
+          <!-- HỘP CHỌN SẢN PHẨM: NHỎ GỌN, TÊN VÀ GIÁ TRÊN 1 HÀNG THẲNG TẮP -->
           <div class="form-group">
-            <label>CHỌN SẢN PHẨM</label>
-            <select>
-              <option>Sầu Riêng Trứng Muối – 85.000đ</option>
-              <option>Đậu Xanh Trứng – 65.000đ</option>
-              <option>Khoai Môn Trứng – 70.000đ</option>
-              <option>Kim Sa Trứng Chảy – 95.000đ</option>
-              <option>Bánh Pía Chay – 55.000đ</option>
-              <option>Bánh Pía Khoai Tây – 88.000đ</option>
-            </select>
+            <label>CHỌN SẢN PHẨM & SỐ LƯỢNG</label>
+            <div class="order-product-list">
+              <div class="order-item-row">
+                <input type="checkbox" name="prod" value="Sầu Riêng Trứng Muối" data-price="85000">
+                <span class="order-item-name">Sầu Riêng Trứng Muối</span>
+                <span class="order-item-price">85.000đ</span>
+                <input type="number" class="order-qty-input" value="1" min="1">
+              </div>
+              <div class="order-item-row">
+                <input type="checkbox" name="prod" value="Đậu Xanh Trứng" data-price="65000">
+                <span class="order-item-name">Đậu Xanh Trứng</span>
+                <span class="order-item-price">65.000đ</span>
+                <input type="number" class="order-qty-input" value="1" min="1">
+              </div>
+              <div class="order-item-row">
+                <input type="checkbox" name="prod" value="Khoai Môn Trứng" data-price="70000">
+                <span class="order-item-name">Khoai Môn Trứng</span>
+                <span class="order-item-price">70.000đ</span>
+                <input type="number" class="order-qty-input" value="1" min="1">
+              </div>
+              <div class="order-item-row">
+                <input type="checkbox" name="prod" value="Kim Sa Trứng Chảy" data-price="95000">
+                <span class="order-item-name">Kim Sa Trứng Chảy</span>
+                <span class="order-item-price">95.000đ</span>
+                <input type="number" class="order-qty-input" value="1" min="1">
+              </div>
+              <div class="order-item-row">
+                <input type="checkbox" name="prod" value="Bánh Pía Chay" data-price="55000">
+                <span class="order-item-name">Bánh Pía Chay</span>
+                <span class="order-item-price">55.000đ</span>
+                <input type="number" class="order-qty-input" value="1" min="1">
+              </div>
+              <div class="order-item-row">
+                <input type="checkbox" name="prod" value="Bánh Pía Khoai Tây" data-price="88000">
+                <span class="order-item-name">Bánh Pía Khoai Tây</span>
+                <span class="order-item-price">88.000đ</span>
+                <input type="number" class="order-qty-input" value="1" min="1">
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <label>SỐ LƯỢNG HỘP</label>
-            <input type="number" value="1" min="1">
-          </div>
+
           <div class="form-group">
             <label>GHI CHÚ</label>
             <textarea rows="2" placeholder="Ít ngọt, giao giờ hành chính..."></textarea>
           </div>
-          <button type="submit" class="btn-primary" style="width:100%;border:0;padding:12px;cursor:pointer;">✔ ĐẶT HÀNG NGAY</button>
+          <button type="submit" class="btn-primary" style="width:100%;border:0;padding:12px;cursor:pointer;">✔ ĐẶT HÀNG & IN HÓA ĐƠN</button>
         </form>
       </div>
     </div>
@@ -1174,6 +1253,44 @@ footer {
   </div>
 </div>
 
+<!-- MODAL HÓA ĐƠN CHI TIẾT & MÃ VẠCH (THANH TOÁN) -->
+<div id="invoiceModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:1100; align-items:center; justify-content:center;">
+  <div style="background:#FFF; width:min(480px, 95vw); padding:30px; border-radius:10px; box-shadow:0 10px 40px rgba(0,0,0,0.3); position:relative; text-align:center;">
+    <h3 style="margin:0 0 5px; color:var(--do-dam); font-size:22px;">HÓA ĐƠN THANH TOÁN</h3>
+    <p style="margin:0 0 15px; font-size:12px; color:var(--chu-mo);">NHÓM 12 — BÁNH PÍA SÓC TRĂNG (DHV AI LAB)</p>
+    
+    <div style="border-top: 1px dashed var(--khung-vien); border-bottom: 1px dashed var(--khung-vien); padding: 15px 0; text-align:left; margin-bottom: 15px;">
+      <p style="margin:4px 0; font-size:13px;"><b>Khách hàng:</b> <span id="invCusName">---</span></p>
+      <p style="margin:4px 0; font-size:13px;"><b>Điện thoại:</b> <span id="invCusPhone">---</span></p>
+      <p style="margin:4px 0; font-size:13px;"><b>Mã đơn hàng:</b> #DHV12-<span id="invCode">8921</span></p>
+      <p style="margin:4px 0; font-size:13px;"><b>Thời gian:</b> <span id="invDate">10/11/2026 14:30</span></p>
+      <div id="invItemsList" style="margin: 10px 0; max-height: 150px; overflow-y: auto; font-size: 13.5px;">
+        <!-- Danh sách sản phẩm in hóa đơn -->
+      </div>
+      <div style="border-top: 1px solid #eee; padding-top: 8px; display:flex; justify-content:space-between; font-weight:700; font-size:15px;">
+        <span>Tổng thanh toán:</span>
+        <span id="invTotal" style="color:var(--do-dam);">0đ</span>
+      </div>
+    </div>
+
+    <!-- KHU VỰC MÃ VẠCH & MÃ QR -->
+    <div style="background:#FAFAFA; padding:15px; border-radius:6px; border:1px solid var(--khung-vien); margin-bottom:20px;">
+      <p style="margin:0 0 8px; font-size:12px; font-weight:700; color:var(--chu-toi);">QUÉT MÃ ĐỂ THANH TOÁN QUA NGÂN HÀNG / VÍ</p>
+      <div style="font-family: 'Courier New', monospace; font-size: 26px; font-weight: 900; letter-spacing: 4px; color: #111; margin-bottom: 5px;">
+        ║▌│█║▌│█║▌│█
+      </div>
+      <span style="font-size:11px; color:var(--chu-mo);">Mã giao dịch: 9704369821384021</span>
+    </div>
+
+    <div style="display:flex; gap:10px;">
+      <button onclick="window.print()" style="flex:1; background:#E5A93C; color:#2B2620; border:0; padding:12px; border-radius:4px; font-weight:700; cursor:pointer; font-size:14px;">🖨️ In Hóa Đơn</button>
+      <button onclick="closeInvoiceModal()" style="flex:1; background:var(--do-dam); color:#FFF; border:0; padding:12px; border-radius:4px; font-weight:700; cursor:pointer; font-size:14px;">✓ Hoàn tất</button>
+    </div>
+    
+    <button onclick="closeInvoiceModal()" style="position:absolute; top:15px; right:20px; background:none; border:0; font-size:20px; cursor:pointer; color:var(--chu-mo);">×</button>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer id="nhom">
   <div class="wrap">
@@ -1226,19 +1343,6 @@ footer {
     });
   });
 
-  function handleOrder(event) {
-    event.preventDefault(); 
-    const name = document.getElementById('cusName').value.trim();
-    const phone = document.getElementById('cusPhone').value.trim();
-    
-    if (name && phone) {
-      alert(`🎉 Cảm ơn bạn ${name}!\n\nĐơn hàng đã được đặt thành công.\nHệ thống đã gửi tin nhắn xác nhận đến số điện thoại: ${phone}. Chúng tôi sẽ liên hệ lại với bạn sớm nhất!`);
-      document.getElementById('orderForm').reset();
-    } else {
-      alert('Vui lòng nhập đầy đủ Họ tên và Số điện thoại!');
-    }
-  }
-
   function loadVideo(container, videoId) {
     container.classList.add('clicked');
     const iframe = document.createElement('iframe');
@@ -1249,7 +1353,7 @@ footer {
     container.appendChild(iframe);
   }
 
-  // Quản lý Giỏ hàng
+  // Quản lý Giỏ hàng chung
   let cart = [];
 
   function addToCart(name, price) {
@@ -1321,8 +1425,77 @@ footer {
       alert('Giỏ hàng của bạn đang trống!');
       return;
     }
-    toggleCartModal();
-    window.location.href = '#banggia';
+    document.getElementById('cartModal').style.display = 'none';
+    showInvoice(document.getElementById('cusName').value || 'Khách hàng', document.getElementById('cusPhone').value || '0909xxxxxx', cart);
+  }
+
+  // XỬ LÝ ĐẶT HÀNG TỪ FORM NHANH (HỖ TRỢ CHỌN NHIỀU MÓN)
+  function handleFormOrder(event) {
+    event.preventDefault(); 
+    const name = document.getElementById('cusName').value.trim();
+    const phone = document.getElementById('cusPhone').value.trim();
+    
+    if (!name || !phone) {
+      alert('Vui lòng nhập đầy đủ Họ tên và Số điện thoại!');
+      return;
+    }
+
+    const checkboxes = document.querySelectorAll('input[name="prod"]:checked');
+    if (checkboxes.length === 0) {
+      alert('Vui lòng chọn ít nhất một sản phẩm để đặt hàng!');
+      return;
+    }
+
+    let formCart = [];
+    checkboxes.forEach(cb => {
+      const row = cb.closest('.order-item-row');
+      const qtyInput = row.querySelector('.order-qty-input');
+      const qty = parseInt(qtyInput.value) || 1;
+      const price = parseInt(cb.getAttribute('data-price'));
+      formCart.push({
+        name: cb.value,
+        price: price,
+        quantity: qty
+      });
+    });
+
+    showInvoice(name, phone, formCart);
+    document.getElementById('orderForm').reset();
+  }
+
+  // HIỂN THỊ HÓA ĐƠN CHI TIẾT VÀ MÃ VẠCH
+  function showInvoice(customerName, customerPhone, itemsList) {
+    document.getElementById('invCusName').textContent = customerName;
+    document.getElementById('invCusPhone').textContent = customerPhone;
+    document.getElementById('invCode').textContent = Math.floor(1000 + Math.random() * 9000);
+    
+    const now = new Date();
+    document.getElementById('invDate').textContent = now.toLocaleDateString('vi-VN') + ' ' + now.toLocaleTimeString('vi-VN');
+
+    let html = '';
+    let totalPrice = 0;
+
+    itemsList.forEach(item => {
+      const itemTotal = item.price * item.quantity;
+      totalPrice += itemTotal;
+      html += `
+        <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+          <span>${item.name} (x${item.quantity})</span>
+          <span><b>${itemTotal.toLocaleString()}đ</b></span>
+        </div>
+      `;
+    });
+
+    document.getElementById('invItemsList').innerHTML = html;
+    document.getElementById('invTotal').textContent = totalPrice.toLocaleString() + 'đ';
+
+    document.getElementById('invoiceModal').style.display = 'flex';
+  }
+
+  function closeInvoiceModal() {
+    document.getElementById('invoiceModal').style.display = 'none';
+    cart = [];
+    updateCartUI();
   }
 
   // Lọc sản phẩm theo danh mục
